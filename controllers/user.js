@@ -4,14 +4,14 @@ var app     = express();
 var port    = process.env.PORT || 3000;
 var bodyParser = require('body-parser');
 
-var User = require('./models/user');
+var User = require('../models/user');
 var userRoutes  = express.Router();
 
 app.use(bodyParser.json());
 
 
 // INDEX
-userRoutes.get('../models/users', function(req, res) {
+router.get('/', function(req, res) {
   console.log('HELP!');
   // res.json(User.all);
 })
@@ -50,7 +50,7 @@ videoRouter.delete('/:id', function(req, res) {
 
 
 // some more middleware
-app.use('/userful-info', router)
+app.use('/user', router)
 app.use('/videos', videoRouter);
 
 //actiony things or whatever
